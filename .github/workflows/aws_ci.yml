@@ -12,6 +12,15 @@ jobs:
       - name: Setup nodejs
         uses: actions/setup-node@v4
 
+      - name: install nodejs
+        run: sudo apt install nodejs
+
+      - name: install npm 
+        run: sudo apt install npm
+
+      - name: install pm2
+        sudo npm install -g pm2
+
       - name: Install packages
         run: npm install
 
