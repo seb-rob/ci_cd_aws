@@ -26,7 +26,7 @@ jobs:
 
       - name: upload build artifact
         uses: actions/upload-artifact@v2
-          name: react-build
+          name: "react-build"
           path: ./build
 
 
@@ -43,7 +43,7 @@ jobs:
 
       - name: download artifact
         uses: actions/download-artifact@v2
-          name: react-build
+          name: "react-build"
           path: ./build
 
       - name: deploy to aws
