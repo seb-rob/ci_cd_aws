@@ -7,10 +7,10 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
 
       - name: install dependencies
         run: npm install
@@ -22,7 +22,7 @@ jobs:
         run: npm run build
 
       - name: upload build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: "react-build"
           path: ./build
@@ -34,13 +34,13 @@ jobs:
     if: success()
     steps:
       - name: checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: download serve globally
         run: npm install -g serve
 
       - name: download artifact
-        uses: actions/download-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: "react-build"
           path: ./build
