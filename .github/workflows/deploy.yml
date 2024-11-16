@@ -1,9 +1,6 @@
 name: "Deploy to AWS EC2"
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
   ci-job:
