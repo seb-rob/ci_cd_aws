@@ -1,0 +1,50 @@
+name: "Deploy to AWS EC2"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci-job:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@v3
+
+      - name: install dependencies
+        run: npm install
+
+      - name: test code
+        run: npm test
+
+      - name: build code
+        run: npm run build
+
+      - name: upload build artifact
+        uses: actions/upload-artifact@v2
+          name: react-build
+          path: ./build
+
+
+  cd-job:
+    runs-on: self-hosted
+    needs: ci-job
+    if: success()
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+
+      - name: download serve globally
+        run: npm install -g serve
+
+      - name: download artifact
+        uses: actions/download-artifact@v2
+          name: react-build
+          path: ./build
+
+      - name: deploy to aws
+        run: serve -s build
