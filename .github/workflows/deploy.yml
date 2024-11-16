@@ -43,8 +43,21 @@ jobs:
           path: ./build
 
       - name: deploy to aws
-        run: |
-          serve -s build &
-          echo "runner on port 3000"
-          curl http://3.110.208.91:3000
-          exit 0
+        run: serve -s build
+
+
+# NEED THIS KIND OF CONFIGURATION FOR DEPLOYING INTO EC2 OF AWS
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: us-east-1  # Update to your AWS region
+
+      # - name: Deploy to EC2
+      #   run: |
+      #     ssh -i ${{ secrets.EC2_SSH_KEY }} ec2-user@${{ secrets.EC2_PUBLIC_IP }} << 'EOF'
+      #       sudo rm -rf /var/www/html/*
+      #       sudo cp -r /github/workspace/build/* /var/www/html/
+      #       sudo systemctl restart nginx
+      #     EOF
