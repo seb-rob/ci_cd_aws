@@ -36,9 +36,6 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
 
-      - name: download serve globally
-        run: npm install -g serve
-
       - name: download artifact
         uses: actions/upload-artifact@v4
         with:
