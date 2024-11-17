@@ -28,7 +28,7 @@ jobs:
           sudo cp -r /home/ubuntu/actions-runner/_work/ci_cd_aws/ci_cd_aws/build/* /var/www/html/
           sudo systemctl restart nginx
 
-
+#### SUCCESSFULL ######
 
 # NEED THIS KIND OF CONFIGURATION FOR DEPLOYING INTO EC2 OF AWS
       # - name: Configure AWS credentials
