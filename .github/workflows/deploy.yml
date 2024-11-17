@@ -26,7 +26,7 @@ jobs:
           sudo mkdir -p /var/www/html
           sudo rm -rf /var/www/html/*
           sudo cp -r /home/ubuntu/actions-runner/_work/ci_cd_aws/ci_cd_aws/build/* /var/www/html/
-          sudo systemctl restart nginx
+          pm2 start index.html
 
 
 
