@@ -24,7 +24,7 @@ jobs:
       - name: deploy to aws
         run: |
           sudo rm -rf /var/www/html/*
-          sudo cp -r /github/workspace/build/* /var/www/html/
+          sudo cp -r /home/ubuntu/actions-runner/_work/ci_cd_aws/ci_cd_aws/build/* /var/www/html/
           sudo systemctl restart nginx
 
 
