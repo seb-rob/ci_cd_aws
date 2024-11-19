@@ -13,7 +13,7 @@ function App() {
           ReactJS on Action....
         </p>
         <p>
-          NGINX UP AND RUNNING...
+          NGINX is up and running..
         </p>
         <a
           className="App-link"
